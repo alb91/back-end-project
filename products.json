@@ -1,1 +1,11 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "Nuevo nombre",
+    "description": "Descripción",
+    "price": 29.99,
+    "thumbnail": "imagen.jpg",
+    "code": "Código",
+    "stock": 4
+  }
+]

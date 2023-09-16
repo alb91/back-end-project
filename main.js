@@ -62,6 +62,22 @@ class ProductManager {
     }
   }
 
+  updateProduct(id, updatedFields) {
+    const productIndex = this.products.findIndex((product) => product.id === id);
+
+    if (productIndex === -1) {
+      console.error(`Producto ${id} no encontrado.`);
+      return;
+    }
+
+    const updatedProduct = { ...this.products[productIndex], ...updatedFields };
+
+    this.products[productIndex] = updatedProduct;
+    this.saveProducts();
+    console.log(`Producto ${id} ha sido actualizado.`);
+  }
+
+
 
   deleteProduct(id) {
   const index = this.products.findIndex((product) => product.id === id);
@@ -81,16 +97,18 @@ class ProductManager {
 
 //Ejemplos
 const productManager = new ProductManager("products.json");
+productManager.loadProducts();
 
-productManager.addProduct(
-  "Producto",
-  "Descripción",
-  10.99,
-  "imagen.jpg",
-  "Código",
-  4
-);
+// productManager.addProduct(
+//   "Producto",
+//   "Descripción",
+//   10.99,
+//   "imagen.jpg",
+//   "Código",
+//   4
+// );
 
+console.log(productManager.updateProduct(1, { title: "Nuevo nombre", price: 29.99 }));
 //console.log(productManager.getProducts());
 //console.log(productManager.getProductById(1));
 //console.log(productManager.deleteProduct(1));
