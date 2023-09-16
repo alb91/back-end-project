@@ -80,7 +80,7 @@ class ProductManager {
 
 
 //Ejemplos
-const productManager = new ProductManager();
+const productManager = new ProductManager("products.json");
 
 productManager.addProduct(
   "Producto",
@@ -91,5 +91,6 @@ productManager.addProduct(
   4
 );
 
-console.log(productManager.getProducts());
-// console.log(productManager.getProductById(1));
+//console.log(productManager.getProducts());
+//console.log(productManager.getProductById(1));
+//console.log(productManager.deleteProduct(1));
